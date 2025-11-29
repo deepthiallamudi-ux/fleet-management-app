@@ -7,16 +7,50 @@
     <head>
         <header>Welcome to Admin Page</header>
         <style>
+            h2{
+                text-align: center;
+                padding: 10px 0px 0px;
+                color: rgb(106, 88, 226);
+    
+            }
+            sidebar {
+                float: left;
+                width: 25%;
+                height: 100vh;
+                background-color: #f1f1f1;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            main {
+                margin-left: 25%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            button {
+                width: auto;
+                padding: 10px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+            button:hover {
+                background-color: #4845a0;
+            }
             main{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
             }
+            img {
+                max-width: 300px;
+                height: auto;
+                margin-bottom: 20px;
+            }
         </style>
     </head>
     <body>
-        <h2>Admin Dashboard</h2>
-        <p>This is the admin section of the website.</p>
         <nav></nav>
         <sidebar>
             <div>
@@ -48,6 +82,7 @@
         </div>
         <script>
             function addVehicle(){
+                var thisBtn = document.getElementById("addVehicleBtn");
                 var regNo=document.getElementById("regNo").value;
                 var category=document.getElementById("category").value;
                 var driver=document.getElementById("driver").value;
@@ -61,7 +96,35 @@
         </script>
         </sidebar>
         <main>
-
+            <div>
+<img src="https://coding-platform.s3.amazonaws.com/dev/lms/tickets/5e80fcb6-3f8e-480c-945b-30a5359eb40e/JNmYjkVr3WOjsrbu.png" alt="vehicle img">
+        
+        <div>
+            <h3>Reg no:</h3>
+            <h3>Category:</h3>
+            <h3>Driver Name:</h3>
+            <h3>Availability:</h3>
+        </div>
+        <div>
+            <button id="update"  onclick="updateVehicle()" type="submit">Update Driver</button>
+            <button id="Availability"  onclick="available()" type="submit">Change availability</button>
+            <button id="delete"  onclick="deleteVehicle()" type="submit">Delete Vehicle</button>
+        </div>
+        </div>
+        <script>
+            function updateVehicle(){
+                prompt("Enter new driver name:");
+               
+            }
+            function available(){
+               if(confirm("Change availability status?")){
+                alert("Availability status changed.");
+               }
+            }
+            function deleteVehicle(){
+                alert("Delete Vehicle functionality to be implemented.");
+            }
+        </script>
         </main>
     </body>
 
