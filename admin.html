@@ -12,11 +12,11 @@
         <p>This is the admin section of the website.</p>
         <nav></nav>
         <sidebar>
-            <div
+            <div>
             <label>Vehicle Number:</label>
             <input id="regNo" type="text" name="reg.no" placeholder="vehicle number"><br>
         </div>
-        <div
+        <div>
             <label>Category:</label>
             <select id="category" name="category">
                 <option value="Auto">Auto</option>
@@ -27,10 +27,20 @@
         </div>
             <div>
             <label>Driver Name:</label>
-            <input  id="driver" type="text" name="driver" placeholder="driver name"><br
+            <input  id="driver" type="text" name="driver" placeholder="driver name"><br>
         </div>
+        <div>
+            <label> is Available:</label>
+            <input id="available" type="checkbox" name="available"><br>
+        </div>
+        <div>
+        <button id="addVehicleBtn" type="submit" onclick="addVehicle()">Add Fleet</button>
+        </div>
+        
         </sidebar>
-        <main></main>
+        <main>
+
+        </main>
     </body>
 
 </html>
