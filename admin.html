@@ -48,6 +48,13 @@
                 height: auto;
                 margin-bottom: 20px;
             }
+            nav {
+                background-color: #333;
+                overflow: hidden;
+                padding: 10px;
+                display:flex;
+                flex-direction: column;
+            }
         </style>
     </head>
     <body>
@@ -130,6 +137,7 @@
                 } else {
                     alert("Please fill all the fields.");
                 }
+                
                 var card=document.createElement("div");
                 card.className="vehicle-card";
                 var h3=document.createElement("h3");
