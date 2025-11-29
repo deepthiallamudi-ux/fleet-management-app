@@ -53,8 +53,39 @@
     <body>
         <nav>
 <div class="navbar">
-    
+    <select id="filtecat" name="filtercat">
+        <option value="All">All</option>
+        <option value="Auto">Auto</option>  
+        <option value="car">Car</option>
+        <option value="truck">Truck</option>
+        <option value="bus">Bus</option>
+    </select>
+    <select id="filtravl">
+        <option value="All">All</option>
+        <option value="Available">Available</option>  
+        <option value="Unavailable">Unavailable</option>
+    </select>
+    <button id="filterBtn" type="submit" onclick="filterVehicles()">Filter</button>
         </nav>
+        
+        <main>
+            <div>
+        <img src="https://coding-platform.s3.amazonaws.com/dev/lms/tickets/5e80fcb6-3f8e-480c-945b-30a5359eb40e/JNmYjkVr3WOjsrbu.png" alt="vehicle img">
+        
+        <div>
+            <h3>Reg no:</h3>
+            <h3>Category:</h3>
+            <h3>Driver Name:</h3>
+            <h3>Availability:</h3>
+        </div>
+        <div>
+            <button id="update"  onclick="updateVehicle()" type="submit">Update Driver</button> </div>
+            <div><button id="Availability"  onclick="available()" type="submit">Change availability</button></div>
+            <div><button id="delete"  onclick="deleteVehicle()" type="submit">Delete Vehicle</button>
+        </div>
+        </div>
+        </main>
+
         <sidebar>
             <div>
             <div  class="sidebar">
@@ -84,25 +115,9 @@
         <div>
         <button id="addVehicleBtn" type="submit" onclick="addVehicle()">Add Fleet</button>
         </div>
-        
         </sidebar>
-        <main>
-            <div>
-<img src="https://coding-platform.s3.amazonaws.com/dev/lms/tickets/5e80fcb6-3f8e-480c-945b-30a5359eb40e/JNmYjkVr3WOjsrbu.png" alt="vehicle img">
-        
-        <div>
-            <h3>Reg no:</h3>
-            <h3>Category:</h3>
-            <h3>Driver Name:</h3>
-            <h3>Availability:</h3>
-        </div>
-        <div>
-            <button id="update"  onclick="updateVehicle()" type="submit">Update Driver</button> </div>
-            <div><button id="Availability"  onclick="available()" type="submit">Change availability</button></div>
-            <div><button id="delete"  onclick="deleteVehicle()" type="submit">Delete Vehicle</button>
-        </div>
-        </div>
-        <script>
+    </body>
+            <script>
             function addVehicle(){
 
                 var thisBtn = document.getElementById("addVehicleBtn");
@@ -132,21 +147,40 @@
                 document.main.appendChild(up);
             }
 
-            var card=document.
+           var updateBtn = document.getElementById("update");
             function updateVehicle(){
-                prompt("Enter new driver name:");
-               
+                alert("Update Driver functionality to be implemented.");
+                
             }
+
+            var availabilityBtn = document.getElementById("Availability");
             function available(){
-               if(confirm("Change availability status?")){
-                alert("Availability status changed.");
-               }
+                alert("Change Availability functionality to be implemented.");
             }
+
+            var deleteBtn = document.getElementById("delete");
             function deleteVehicle(){
                 alert("Delete Vehicle functionality to be implemented.");
             }
+
+            function filterVehicles(){
+                var categoryFilter = document.getElementById("filtecat").value;
+                var availabilityFilter = document.getElementById("filtravl").value;
+                var cards = document.getElementsByClassName("vehicle-card").childern;
+                for (var i = 0; i < cards.length; i++) {
+                    var card = cards[i];
+                    var category = card.getAttribute("category");
+                    var availability = card.getElementsByTagName("h3")[3].textContent.split(": ")[1];
+                    if ((categoryFilter === "All" || category === categoryFilter) &&
+                        (availabilityFilter === "All" || 
+                         (availabilityFilter === "Available" && availability === "true") ||
+                         (availabilityFilter === "Unavailable" && availability === "false"))) {
+                        card.style.display = "";
+                    } else {
+                        card.style.display = "none";
+                    }
+                }
+            }
         </script>
-        </main>
-    </body>
 
 </html>
