@@ -51,9 +51,13 @@
         </style>
     </head>
     <body>
-        <nav></nav>
+        <nav>
+<div class="navbar">
+    
+        </nav>
         <sidebar>
             <div>
+            <div  class="sidebar">
             <label>Vehicle Number:</label>
             <input id="regNo" type="text" name="reg.no" placeholder="vehicle number"><br>
         </div>
@@ -80,20 +84,7 @@
         <div>
         <button id="addVehicleBtn" type="submit" onclick="addVehicle()">Add Fleet</button>
         </div>
-        <script>
-            function addVehicle(){
-                var thisBtn = document.getElementById("addVehicleBtn");
-                var regNo=document.getElementById("regNo").value;
-                var category=document.getElementById("category").value;
-                var driver=document.getElementById("driver").value;
-                var available=document.getElementById("available").checked;
-                if(regNo!=="" && category!=="" && driver!==""){
-                    alert("Vehicle Added Successfully:\n"+"Reg No: "+regNo+"\nCategory: "+category+"\nDriver: "+driver+"\nAvailable: "+available);
-                } else {
-                    alert("Please fill all the fields.");
-                }
-            }
-        </script>
+        
         </sidebar>
         <main>
             <div>
@@ -106,12 +97,42 @@
             <h3>Availability:</h3>
         </div>
         <div>
-            <button id="update"  onclick="updateVehicle()" type="submit">Update Driver</button>
-            <button id="Availability"  onclick="available()" type="submit">Change availability</button>
-            <button id="delete"  onclick="deleteVehicle()" type="submit">Delete Vehicle</button>
+            <button id="update"  onclick="updateVehicle()" type="submit">Update Driver</button> </div>
+            <div><button id="Availability"  onclick="available()" type="submit">Change availability</button></div>
+            <div><button id="delete"  onclick="deleteVehicle()" type="submit">Delete Vehicle</button>
         </div>
         </div>
         <script>
+            function addVehicle(){
+
+                var thisBtn = document.getElementById("addVehicleBtn");
+                var regNo=document.getElementById("regNo").value;
+                var category=document.getElementById("category").value;
+                var driver=document.getElementById("driver").value;
+                var available=document.getElementById("available").checked;
+                if(regNo!=="" && category!=="" && driver!==""){
+                    alert("Vehicle Added Successfully:\n"+"Reg No: "+regNo+"\nCategory: "+category+"\nDriver: "+driver+"\nAvailable: "+available);
+                } else {
+                    alert("Please fill all the fields.");
+                }
+                var card=document.createElement("div");
+                card.className="vehicle-card";
+                var h3=document.createElement("h3");
+                h3.textContent=regNo;
+            var p1=document.createElement("h3");
+                p1.textContent="category: "+category;
+                var p2=document.createElement("h3");
+                p2.textContent="driver: "+driver;
+                var p3=document.createElement("h3");
+                p3.textContent="available: "+available;
+                card.appendChild(h3);
+                card.appendChild(p1);
+                card.appendChild(p2);
+                card.appendChild(p3);
+                document.main.appendChild(up);
+            }
+
+            var card=document.
             function updateVehicle(){
                 prompt("Enter new driver name:");
                
