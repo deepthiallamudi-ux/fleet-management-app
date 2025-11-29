@@ -6,6 +6,13 @@
     <title>Admin Page</title>
     <head>
         <header>Welcome to Admin Page</header>
+        <style>
+            main{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        </style>
     </head>
     <body>
         <h2>Admin Dashboard</h2>
@@ -31,12 +38,27 @@
         </div>
         <div>
             <label> is Available:</label>
-            <input id="available" type="checkbox" name="available"><br>
+            <select id="available" name="available">
+                <option value="true">Available</option>
+                <option value="false">Unavailable</option>
+            </select>
         </div>
         <div>
         <button id="addVehicleBtn" type="submit" onclick="addVehicle()">Add Fleet</button>
         </div>
-        
+        <script>
+            function addVehicle(){
+                var regNo=document.getElementById("regNo").value;
+                var category=document.getElementById("category").value;
+                var driver=document.getElementById("driver").value;
+                var available=document.getElementById("available").checked;
+                if(regNo!=="" && category!=="" && driver!==""){
+                    alert("Vehicle Added Successfully:\n"+"Reg No: "+regNo+"\nCategory: "+category+"\nDriver: "+driver+"\nAvailable: "+available);
+                } else {
+                    alert("Please fill all the fields.");
+                }
+            }
+        </script>
         </sidebar>
         <main>
 
